@@ -34,10 +34,10 @@ public class Main
     	int[] array2 = {0, 1, 0, 1, 0, 1, 0, 1, 0, 1};
     	
     	for(int i = 0; i < array2.length; i++){
-    		if(array2[i] != 0){
-    			array2[i] = 0;
+    		if(array2[i] == 0){
+    			array2[i] = -1;
     		} else{
-    			array2[i] = -1;    			
+    			array2[i] = 0;
     		}
     	}
     	
@@ -53,7 +53,7 @@ public class Main
 	    int[] array3 = new int [8]; 
 	    array3[0] = 1;
 	    for(int i = 1; i < array3.length; i++){
-		    array3[i] = array3[i-1] + 3;		
+		    array3[i] = array3[i-1]+3;
 	    }
 	    for(int i = 0; i < array3.length; i++){		
 		    System.out.println(array3[i]);
