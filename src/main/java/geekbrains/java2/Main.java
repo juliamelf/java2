@@ -13,6 +13,11 @@ public class Main
         array2();       
         System.out.println( "Task 1.3" );
         array3();    
+        System.out.println( "Task 1.4" );
+        System.out.println("Результат сложения чисел = " + addition(7.0, 10.0));
+        System.out.println("Результат вычитания чисел = " + subtraction(7.0, 10.0));
+        System.out.println("Результат умножения чисел = " + multiplication(7.0, 10.0));
+        System.out.println("Результат деления чисел = " + division(7.0, 10.0));
     }
     
     //ДЗ 1.1
@@ -58,5 +63,31 @@ public class Main
 	    for(int i = 0; i < array3.length; i++){		
 		    System.out.println(array3[i]);
 	    }	
+    }
+    
+    //ДЗ 1.4       
+    
+    public static double addition(double x, double y){
+    	double addResult;
+    	addResult = x+y;
+    	return addResult;
+    }
+    
+    public static double subtraction(double x, double y){
+    	double subResult;
+    	subResult = x-y;
+    	return subResult;    	
+    }
+    
+    public static double multiplication(double x, double y){
+    	double multResult;
+    	multResult = x*y;
+    	return multResult;    	
+    }
+    
+    public static double division(double x, double y){
+    	double divResult;
+    	divResult = x/y;
+        return divResult;    	
     }
 }
