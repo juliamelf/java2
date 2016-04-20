@@ -29,43 +29,33 @@ public class Main {
 	System.out.println("Игра в крестики-нолики");
 	printBoard();
 	
-	String playerMove = "";
-	String compMove = "";
-	boolean gameOver = false;
+	String playerMove;
+	String compMove;
 	
-	for(int i = 0; i <=9; i++){
+	
+	while(true){
 		System.out.println("Ваш ход");
 		playerMove = playerMove();
 		updateBoard(playerMove, "1");
 		printBoard();
-		/*if(winGame() == true){
-			System.out.println("Вы выиграли!");
-			gameOver = true;
+		if(winGame() == true){
+			System.out.println("Вы выиграли!");			
 			break;
 		}
-		*/
 		
-		if(i < 9){
-			System.out.println("Ход компьютера");
-			compMove = computerMove();
-			System.out.println("Компьютер ходит: " + compMove);
-			updateBoard(compMove, "2");
-			printBoard();
-			/*
-			if(winGame() == true){
-				System.out.println("Вы проиграли!");
-				gameOver = true;
-				break;
-			}
-			*/
-			
-			i++;
-			
+		System.out.println("Ход компьютера");
+		compMove = computerMove();
+		System.out.println("Компьютер ходит: " + compMove);
+		updateBoard(compMove, "2");
+		printBoard();
+		
+		if(winGame() == true){
+			System.out.println("Вы проиграли!");			
+			break;
 		}
 		
-		
-	}
-	
+	} 
+	System.out.println("Игра закончена");	
 	
 	}
 	
@@ -111,7 +101,7 @@ public class Main {
 	}		   
 	
 	//получаем значения переменных
-		public static String getValue(String value){
+	public static String getValue(String value){
 			if(value == "1"){
 				return " X";
 			} else if(value == "2"){
@@ -119,10 +109,10 @@ public class Main {
 			} else {
 				return value;			
 			}		
-		}		
+	}		
 		
-		//Выводим поле в консоль
-		public static void printBoard(){
+	//Выводим поле в консоль
+	public static void printBoard(){
 			
 		System.out.println(getValue(A1)  + " | " + getValue(A2) + " | " + getValue(A3) );
 		System.out.println("---|----|---");
@@ -130,11 +120,11 @@ public class Main {
 		System.out.println("---|----|---");
 		System.out.println(getValue(C1)  + " | " + getValue(C2) + " | " + getValue(C3) );
 			
-		}
+	}
 			
 	
 	//Ход компьютера
-		public static String computerMove(){	
+	public static String computerMove(){	
 			
 		if(A1 == "A1")
 			return "A1";
@@ -159,13 +149,34 @@ public class Main {
 	}
 		
 	// Проверяем заполнен ли ряд
+	public static boolean fullRow(String s1, String s2, String s3){
+		
+		return((s1 == s2) && (s1 == s3));
+		
+	}		
 		
 	// Проверяем нет ли выигрыша	
-				
-		
-	
+	public static boolean winGame(){
+		if(fullRow(A1, A2, A3))
+			return true;
+		if(fullRow(B1, B2, B3))
+			return true;
+		if(fullRow(C1, C2, C3))
+			return true;
+		if(fullRow(A1, B2, C3))
+			return true;
+		if(fullRow(A3, B2, C1))
+			return true;
+		if(fullRow(A1, B1, C1))
+			return true;
+		if(fullRow(A2, B2, C3))
+			return true;
+		if(fullRow(A3, B3, C3))
+			return true;
+		return false;	
 	}
 	
+}
 	
 	
 	
