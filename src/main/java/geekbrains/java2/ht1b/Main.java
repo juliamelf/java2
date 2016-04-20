@@ -19,18 +19,25 @@ public class Main {
 	
 	public static void main( String[] args ){
 	System.out.println("Игра в крестики-нолики");
+	printBoard();
 	}
 	
-	
-	//Создаем игровое поле в виде массива
-	public static int[] array(){
+	//Создаем игровое поле в виде массива - глобальные переменные
+	static int A1 = 0, A2 = 0,  A3 = 0, B1 = 0, B2 = 0, B3 = 0, C1 = 0, C2 = 0, C3 = 0;	
+	int[] array = {A1, A2, A3, B1, B2, B3, C1, C2, C3};
 		
-		int A1 = 0, A2 = 0, A3 = 0, B1 = 0, B2 = 0, B3 = 0, C1 = 0 , C2 = 0, C3 = 0;	
-		int[] array = {A1, A2, A3, B1, B2, B3, C1, C2, C3};
-		return array;
-	}
 	
 	//Пишем метод вывода поля в консоль
+	public static void printBoard(){
+		
+	System.out.println(A1  + " | " + A2 + " | " + A3 );
+	System.out.println("--|---|--");
+	System.out.println(B1  + " | " + B2 + " | " + B3 );
+	System.out.println("--|---|--");
+	System.out.println(C1  + " | " + C2 + " | " + C3 );
+		
+		
+	}
 	
 	
 	
