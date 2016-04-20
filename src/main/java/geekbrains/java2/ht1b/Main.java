@@ -1,5 +1,6 @@
 package geekbrains.java2.ht1b;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -22,6 +23,7 @@ public class Main {
 	
 	//глобальные переменные
 	static String A1 = "A1", A2 = "A2",  A3 = "A3", B1 = "B1", B2 = "B2", B3 = "B3", C1 = "C1", C2 = "C2", C3 = "C3";	
+	String[] board = {A1, A2, A3, B1, B2, B3, C1, C2, C3};
 	static Scanner scanner = new Scanner(System.in);
 			
 	
@@ -154,25 +156,79 @@ public class Main {
 	//Ход компьютера
 	public static String computerMove(){	
 			
-		if(A1 == "A1")
+		if(
+				((A1 == "A1") && (A2 == "2") && (A3 == "2")) ||
+				((A1 == "A1") && (A2 == "2") && (A3 == "A3")) ||
+				((A1 == "A1") && (A2 == "A2") && (A3 == "2"))				
+			){
+			  return "A1";
+		     }
+		else if(
+				((A1 == "2") && (A2 == "A2") && (A3 == "2")) ||
+				((A1 == "2") && (A2 == "A2") && (A3 == "A3")) ||
+				((A1 == "A1") && (A2 == "A2") && (A3 == "2"))	
+			   ){
+			     return "A2";	
+		        }
+		else if(
+				((A1 == "2") && (A2 == "2") && (A3 == "A3")) ||
+				((A1 == "2") && (A2 == "A2") && (A3 == "A3")) ||
+				((A1 == "A1") && (A2 == "2") && (A3 == "A3"))	
+			   ){
+			     return "A3";	
+		        }
+		else if(
+				((B1 == "B1") && (B2 == "2") && (B3 == "2")) ||
+				((B1 == "B1") && (B2 == "2") && (B3 == "B3")) ||
+				((B1 == "B1") && (B2 == "B2") && (B3 == "2"))
+			   ){
+			     return "B1";
+		        }
+		else if(
+				((B1 == "2") && (B2 == "B2") && (B3 == "2")) ||
+				((B1 == "2") && (B2 == "B2") && (B3 == "B3")) ||
+				((B1 == "B1") && (B2 == "B2") && (B3 == "2"))
+			   ){
+			     return "B2";
+		        }
+		else if(
+				((B1 == "2") && (B2 == "2") && (B3 == "B3")) ||
+				((B1 == "2") && (B2 == "B2") && (B3 == "B3")) ||
+				((B1 == "B1") && (B2 == "2") && (B3 == "B3"))
+			   ){
+			     return "B3";
+		        }
+		else if(
+				((C1 == "C1") && (C2 == "2") && (C3 == "2")) ||
+				((C1 == "C1") && (C2 == "2") && (C3 == "C3")) ||
+				((C1 == "C1") && (C2 == "C2") && (C3 == "2"))
+			   ){
+			     return "C1";
+		        }
+		else if(
+				((C1 == "2") && (C2 == "C2") && (C3 == "2")) ||
+				((C1 == "2") && (C2 == "C2") && (C3 == "C3")) ||
+				((C1 == "C1") && (C2 == "C2") && (C3 == "2"))
+			   ){
+			     return "C2";
+		        }
+		else if(
+				((C1 == "2") && (C2 == "2") && (C3 == "C3")) ||
+				((C1 == "2") && (C2 == "C2") && (C3 == "C3")) ||
+				((C1 == "C1") && (C2 == "2") && (C3 == "C3"))
+			   ){
+			     return "C3";
+		        }
+		else if(A1 == "A1"){
 			return "A1";
-		if(A2 == "A2")
-			return "A2";		
-		if(A3 == "A3")
-			return "A3";		
-		if(B1 == "B1")
-			return "B1";
-		if(B2 == "B2")
-			return "B2";
-		if(B3 == "B3")
-			return "B3";
-		if(C1 =="C1")
-			return "C1";
-		if(C2 == "C2")
-			return "C2";
-		if(C3 == "C3")
-			return "C3";
-		return "";
+		}
+		else if(A2 == "A2"){
+			return "A2";			
+		}
+		else if(A3 == "A3"){
+			return "A3";
+		}
+		return "";		     
 				
 	}
 		
