@@ -21,7 +21,15 @@ public class Main {
 	 */
 	
 	//глобальные переменные
-	static String A1 = "A1", A2 = "A2",  A3 = "A3", B1 = "B1", B2 = "B2", B3 = "B3", C1 = "C1", C2 = "C2", C3 = "C3";	
+	static String A1 = "A1";
+	static String A2 = "A2";
+	static String A3 = "A3";
+	static String B1 = "B1";
+	static String B2 = "B2";
+	static String B3 = "B3";
+	static String C1 = "C1";
+	static String C2 = "C2";
+	static String C3 = "C3";	
 	static Scanner scanner = new Scanner(System.in);
 			
 	
@@ -99,9 +107,9 @@ public class Main {
 	public static boolean validMove(String move){
 		if(move.equalsIgnoreCase("A1") && (A1 == "A1"))
 			return true;
-		if(move.equalsIgnoreCase("A2") && (A1 == "A2"))
+		if(move.equalsIgnoreCase("A2") && (A2 == "A2"))
 			return true;
-		if(move.equalsIgnoreCase("A3") && (A1 == "A3"))
+		if(move.equalsIgnoreCase("A3") && (A3 == "A3"))
 			return true;
 		if(move.equalsIgnoreCase("B1") && (B1 == "B1"))
 			return true;
@@ -113,7 +121,7 @@ public class Main {
 			return true;
 		if(move.equalsIgnoreCase("C2") && (C2 == "C2"))
 			return true;
-		if(move.equalsIgnoreCase("C3") && (C1 == "C3"))
+		if(move.equalsIgnoreCase("C3") && (C3 == "C3"))
 			return true;
 		return false;
 	}
