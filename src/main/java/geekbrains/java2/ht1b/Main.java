@@ -47,8 +47,7 @@ public class Main {
 		compMove = computerMove();
 		System.out.println("Компьютер ходит: " + compMove);
 		updateBoard(compMove, "2");
-		printBoard();
-		
+		printBoard();		
 		if(winGame() == true){
 			System.out.println("Вы проиграли!");			
 			break;
@@ -59,15 +58,67 @@ public class Main {
 	
 	}
 	
+	//получаем значения в ячейках на доске
+	public static String getValue(String value){
+		if(value == "1"){
+			return " X";
+		} else if(value == "2"){
+			return " O";
+		} else {
+			return value;			
+		}		
+	}		
+			
+	//Выводим поле в консоль
+	public static void printBoard(){
+				
+		System.out.println(getValue(A1)  + " | " + getValue(A2) + " | " + getValue(A3) );
+		System.out.println("---|----|---");
+		System.out.println(getValue(B1)  + " | " + getValue(B2) + " | " + getValue(B3) );
+		System.out.println("---|----|---");
+		System.out.println(getValue(C1)  + " | " + getValue(C2) + " | " + getValue(C3) );
+				
+	}
+	
 	
 	//Ход игрока
 	public static String playerMove(){
-		String playerMove;		
-		playerMove = scanner.nextLine();	
+		String playerMove;	
+		
+		do{					
+		   playerMove = scanner.nextLine();	
+		   if (validMove(playerMove) == false)
+		   {
+			   System.out.println("Некорректное значение, выберите другое.");
+		   }
+		} while(validMove(playerMove) == false);
 		return playerMove;		
 	}
 	
-	//Обновляем поле после хода 
+	//Некорректный ход
+	public static boolean validMove(String move){
+		if(move.equalsIgnoreCase("A1") && (A1 == "A1"))
+			return true;
+		if(move.equalsIgnoreCase("A2") && (A1 == "A2"))
+			return true;
+		if(move.equalsIgnoreCase("A3") && (A1 == "A3"))
+			return true;
+		if(move.equalsIgnoreCase("B1") && (B1 == "B1"))
+			return true;
+		if(move.equalsIgnoreCase("B2") && (B2 == "B2"))
+			return true;
+		if(move.equalsIgnoreCase("B3") && (B3 == "B3"))
+			return true;
+		if(move.equalsIgnoreCase("C1") && (C1 == "C1"))
+			return true;
+		if(move.equalsIgnoreCase("C2") && (C2 == "C2"))
+			return true;
+		if(move.equalsIgnoreCase("C3") && (C1 == "C3"))
+			return true;
+		return false;
+	}
+	
+	//Записываем новые значения в ячейки после хода 
 	public static void updateBoard(String move, String player){
 		
 		if(move.equalsIgnoreCase("A1")){
@@ -98,30 +149,7 @@ public class Main {
 			C3 = player;
 		}	
 		      
-	}		   
-	
-	//получаем значения переменных
-	public static String getValue(String value){
-			if(value == "1"){
-				return " X";
-			} else if(value == "2"){
-				return " O";
-			} else {
-				return value;			
-			}		
-	}		
-		
-	//Выводим поле в консоль
-	public static void printBoard(){
-			
-		System.out.println(getValue(A1)  + " | " + getValue(A2) + " | " + getValue(A3) );
-		System.out.println("---|----|---");
-		System.out.println(getValue(B1)  + " | " + getValue(B2) + " | " + getValue(B3) );
-		System.out.println("---|----|---");
-		System.out.println(getValue(C1)  + " | " + getValue(C2) + " | " + getValue(C3) );
-			
-	}
-			
+	}					
 	
 	//Ход компьютера
 	public static String computerMove(){	
