@@ -18,6 +18,8 @@ public class Main
         System.out.println("Результат вычитания чисел = " + subtraction(7.0, 10.0));
         System.out.println("Результат умножения чисел = " + multiplication(7.0, 10.0));
         System.out.println("Результат деления чисел = " + division(7.0, 10.0));
+        System.out.println( "Task 1.5" );
+        formula();
     }
     
     //ДЗ 1.1
@@ -89,5 +91,16 @@ public class Main
     	double divResult;
     	divResult = x/y;
         return divResult;    	
+    }
+    
+   //ДЗ 1.5
+       
+    public static void formula(){  	
+    	
+    	double addResult = addition(2, 3);    	
+    	double multResult = multiplication(addResult, 5);    	
+    	double forResult = division(multResult, 2); 
+    	System.out.println("((2+3)*5)/2 = " + forResult);
+    	
     }
 }
