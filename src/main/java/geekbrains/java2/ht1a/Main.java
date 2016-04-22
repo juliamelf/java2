@@ -1,4 +1,4 @@
-package geekbrains.java2;
+package geekbrains.java2.ht1a;
 
 import java.util.Random;
 
