@@ -1,6 +1,5 @@
 package geekbrains.java2.ht1b;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -26,17 +25,13 @@ public class Main {
 	static Scanner scanner = new Scanner(System.in);
 			
 	
-	public void main( String[] args ){
+	public static void main( String[] args ){
 	System.out.println("Игра в крестики-нолики");
 	printBoard();
 	
-	String playerMove;
-	String compMove;	
-	
-	while(true){
+	while(computerMove() != "Больше ходов нет. Ничья"){
 		System.out.println("Ваш ход");
-		playerMove = playerMove();
-		updateBoard(playerMove, "1");
+		updateBoard(playerMove(), "1");
 		printBoard();
 		if(winGame() == true){
 			System.out.println("Вы выиграли!");			
@@ -44,9 +39,8 @@ public class Main {
 		}
 		
 		System.out.println("Ход компьютера");
-		compMove = computerMove();
-		System.out.println("Компьютер ходит: " + compMove);
-		updateBoard(compMove, "2");
+		System.out.println("Компьютер ходит: " + computerMove());
+		updateBoard(computerMove(), "2");
 		printBoard();		
 		if(winGame() == true){
 			System.out.println("Вы проиграли!");			
@@ -59,7 +53,8 @@ public class Main {
 	}
 	
 	//получаем значения в ячейках на доске
-	private String getValue(String value){
+	
+	private static String getValue(String value){
 		if(value == "1"){
 			return " X";
 		} else if(value == "2"){
@@ -67,10 +62,12 @@ public class Main {
 		} else {
 			return value;			
 		}		
-	}		
+	}	
+	
+		
 			
 	//Выводим поле в консоль
-	private void printBoard(){
+	private static void printBoard(){
 		
 		System.out.println("----------------");
 		for (int i = 0; i < board.length; i++){
@@ -88,7 +85,7 @@ public class Main {
 	
 	
 	//Ход игрока
-	private String playerMove(){
+	private static String playerMove(){
 		String playerMove;	
 		
 		do{					
@@ -102,7 +99,7 @@ public class Main {
 	}
 	
 	//Некорректный ход
-	private boolean validMove(String move){
+	private static boolean validMove(String move){
 		if(move.equalsIgnoreCase("A1") && (board[0][0] == "A1"))
 			return true;
 		if(move.equalsIgnoreCase("A2") && (board[0][1] == "A2"))
@@ -125,7 +122,7 @@ public class Main {
 	}
 	
 	//Записываем новые значения в ячейки после хода 
-	private void updateBoard(String move, String player){
+	private static void updateBoard(String move, String player){
 		
 		if(move.equalsIgnoreCase("A1")){
 			board[0][0] = player;
@@ -158,44 +155,71 @@ public class Main {
 	}					
 	
 	//Ход компьютера
-	private String computerMove(){
+	private static  String computerMove(){
+		
+		//блокируем линию по горизонтали
 		for(int i = 0; i < 3; i++){
-			if (board[i][0] == board[i][1]){
+			if (board[i][0] == board[i][1] && validMove(board[i][2]) == true){
 				return board[i][2];
-			}
-			else if (board[i][0] == board[i][2]){
-				return board[i][1];
-				
-			}
-			else if (board[i][1] == board [i][2]){
+			} else if (board[i][0] == board[i][2] && validMove(board[i][1]) == true){
+				return board[i][1];				
+			} else if (board[i][1] == board [i][2] && validMove(board[i][0]) == true){
 				return board[i][0];
 			}			
 		}
 		
+		//блокируем линию по вертикали
 		for(int j = 0; j < 3; j++) {
-			
+			if (board[0][j] == board[1][j] && validMove(board[2][j]) == true){
+				return board[2][j];
+			} else if (board[0][j] == board[2][j] && validMove(board[1][j]) == true){
+				return board[1][j];
+			} else if (board[1][j] == board[2][j] && validMove(board[0][j]) == true){
+				return board[0][j];
+			}			
 		}
 		
-	
+		//блокируем линию по диагонали
+		if(board[0][0] == board[1][1] && validMove(board[2][2]) == true){
+			return board[2][2];			
+		} else if (board[0][0] == board[2][2] && validMove(board[1][1]) == true){
+			return board[1][1];
+		} else if (board[1][1] == board[2][2] && validMove(board[0][0]) == true){
+			return board[0][0];
+		}
 		
+		if(board[0][2] == board[1][1] && validMove(board[2][0]) == true){
+			return board[2][0];			
+		} else if (board[0][2] == board[2][0] && validMove(board[1][1]) == true){
+			return board[1][1];
+		} else if (board[1][1] == board[2][0] && validMove(board[0][2]) == true){
+			return board[0][2];
+		}
+		
+		//свой ход
+		for(int i = 0; i < board.length; i++){
+			for(int j = 0; j < board[i].length; j++){
+				if(board[i][j] != "1" && board[i][j] != "2"){
+					return board[i][j];
+				}					
 				
-	}
+			}	
+			
+		}	
+		return "Больше ходов нет. Ничья";
+				
+	}	
 	
-	
-	//Проверяем есть ли законченные линии
-	private boolean playerFullRow(){
-		
-	}
 		
 	// Проверяем заполнен ли ряд
-	private boolean checkRowValues(String s1, String s2, String s3){
+	private static boolean checkRowValues(String s1, String s2, String s3){
 		
 		return((s1 == s2) && (s1 == s3));
 		
 	}	
 	
 	// Проверяем есть ли заполненные ряды
-	private boolean checkFullRow(){
+	private static boolean checkFullRow(){
 		for(int i = 0; i < board.length; i++) {
 			if(checkRowValues(board[i][0], board[i][1], board[i][2]) == true){
 				return true;
@@ -205,7 +229,7 @@ public class Main {
 	}
 	
 	// Проверяем есть ли заполненные столбцы
-	private boolean checkFullColumn(){
+	private static boolean checkFullColumn(){
 		for (int i = 0; i < board.length; i++){
 			if (checkRowValues(board[0][i], board[1][i], board[2][i]) == true){
 				return true;
@@ -215,7 +239,7 @@ public class Main {
 	}
 	
 	// Проверяем есть ли заполненные ряды по диагонали
-	private boolean checkFullDiagonal(){
+	private static boolean checkFullDiagonal(){
 		if(checkRowValues(board[0][0], board[1][1], board[2][2]) == true || checkRowValues(board[0][2], board[1][1], board[2][0]) == true){
 			return true;
 		}
@@ -223,7 +247,7 @@ public class Main {
 	}
 			
 	// Проверяем есть ли победитель
-	private boolean winGame(){
+	private static boolean winGame(){
 		if (checkFullRow() == true || checkFullColumn() == true || checkFullDiagonal() == true) {
 			return true;
 		}
