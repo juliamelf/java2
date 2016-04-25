@@ -31,8 +31,7 @@ public class Main {
 	printBoard();
 	
 	String playerMove;
-	String compMove;
-	
+	String compMove;	
 	
 	while(true){
 		System.out.println("Ваш ход");
@@ -104,23 +103,23 @@ public class Main {
 	
 	//Некорректный ход
 	public static boolean validMove(String move){
-		if(move.equalsIgnoreCase("A1") && (A1 == "A1"))
+		if(move.equalsIgnoreCase("A1") && (board[0][0] == "A1"))
 			return true;
-		if(move.equalsIgnoreCase("A2") && (A1 == "A2"))
+		if(move.equalsIgnoreCase("A2") && (board[0][1] == "A2"))
 			return true;
-		if(move.equalsIgnoreCase("A3") && (A1 == "A3"))
+		if(move.equalsIgnoreCase("A3") && (board[0][2] == "A3"))
 			return true;
-		if(move.equalsIgnoreCase("B1") && (B1 == "B1"))
+		if(move.equalsIgnoreCase("B1") && (board[1][0] == "B1"))
 			return true;
-		if(move.equalsIgnoreCase("B2") && (B2 == "B2"))
+		if(move.equalsIgnoreCase("B2") && (board[1][1] == "B2"))
 			return true;
-		if(move.equalsIgnoreCase("B3") && (B3 == "B3"))
+		if(move.equalsIgnoreCase("B3") && (board[1][2] == "B3"))
 			return true;
-		if(move.equalsIgnoreCase("C1") && (C1 == "C1"))
+		if(move.equalsIgnoreCase("C1") && (board[2][0] == "C1"))
 			return true;
-		if(move.equalsIgnoreCase("C2") && (C2 == "C2"))
+		if(move.equalsIgnoreCase("C2") && (board[2][1] == "C2"))
 			return true;
-		if(move.equalsIgnoreCase("C3") && (C1 == "C3"))
+		if(move.equalsIgnoreCase("C3") && (board[2][2] == "C3"))
 			return true;
 		return false;
 	}
@@ -284,31 +283,39 @@ public class Main {
 	}
 		
 	// Проверяем заполнен ли ряд
-	public static boolean fullRow(String s1, String s2, String s3){
+	private boolean checkRowValues(String s1, String s2, String s3){
 		
 		return((s1 == s2) && (s1 == s3));
 		
-	}		
+	}	
+	
+	private boolean checkFullRow(){
+		for(int i = 0; i < board.length; i++) {
+			if(checkRowValues(board[i][0], board[i][1], board[i][2]) == true){
+				return true;
+			}			
+		}
+		return false;
+	}
+	
+	private boolean checkFullColumn(){
+		for (int i = 0; i < board.length; i++){
+			if (checkRowValues(board[0][i], board[1][i], board[2][i]) == true){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private boolean checkFullDiagonal(){
 		
-	// Проверяем нет ли выигрыша	
-	public static boolean winGame(){
-		if(fullRow(A1, A2, A3))
-			return true;
-		if(fullRow(B1, B2, B3))
-			return true;
-		if(fullRow(C1, C2, C3))
-			return true;
-		if(fullRow(A1, B2, C3))
-			return true;
-		if(fullRow(A3, B2, C1))
-			return true;
-		if(fullRow(A1, B1, C1))
-			return true;
-		if(fullRow(A2, B2, C3))
-			return true;
-		if(fullRow(A3, B3, C3))
-			return true;
-		return false;	
+	}
+	
+	
+		
+	
+	private boolean winGame(){
+		
 	}
 	
 }
