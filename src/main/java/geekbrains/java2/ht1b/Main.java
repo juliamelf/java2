@@ -22,8 +22,7 @@ public class Main {
 	 */
 	
 	//глобальные переменные
-	static String A1 = "A1", A2 = "A2",  A3 = "A3", B1 = "B1", B2 = "B2", B3 = "B3", C1 = "C1", C2 = "C2", C3 = "C3";	
-	String[] board = {A1, A2, A3, B1, B2, B3, C1, C2, C3};
+	static String[][] board = {{"A1", "A2", "A3"}, {"B1", "B2", "B3"}, {"C1", "C2", "C3"}};	
 	static Scanner scanner = new Scanner(System.in);
 			
 	
@@ -73,13 +72,19 @@ public class Main {
 			
 	//Выводим поле в консоль
 	public static void printBoard(){
+		
+		System.out.println("----------------");
+		for (int i = 0; i < board.length; i++){
+			System.out.print("| ");
+			for(int j = 0; j < board[i].length; j++){
+				System.out.print(getValue(board[i][j]) + " | ");
 				
-		System.out.println(getValue(A1)  + " | " + getValue(A2) + " | " + getValue(A3) );
-		System.out.println("---|----|---");
-		System.out.println(getValue(B1)  + " | " + getValue(B2) + " | " + getValue(B3) );
-		System.out.println("---|----|---");
-		System.out.println(getValue(C1)  + " | " + getValue(C2) + " | " + getValue(C3) );
-				
+			}
+			System.out.println();
+			System.out.println("----------------");		
+		}
+		
+		
 	}
 	
 	
@@ -124,31 +129,31 @@ public class Main {
 	public static void updateBoard(String move, String player){
 		
 		if(move.equalsIgnoreCase("A1")){
-			A1 = player;
+			board[0][0] = player;
 		}
 		if(move.equalsIgnoreCase("A2")){
-			A2 = player;
+			board[0][1] = player;
 		}
 		if(move.equalsIgnoreCase("A3")){
-			A3 = player;
+			board[0][2] = player;
 		}
 		if(move.equalsIgnoreCase("B1")){
-			B1 = player;
+			board[1][0] = player;
 		}
 		if(move.equalsIgnoreCase("B2")){
-			B2 = player;
+			board[1][1] = player;
 		}
 		if(move.equalsIgnoreCase("B3")){
-			B3 = player;
+			board[1][2] = player;
 		}
 		if(move.equalsIgnoreCase("C1")){
-			C1 = player;
+			board[2][0] = player;
 		}
 		if(move.equalsIgnoreCase("C2")){
-			C2 = player;
+			board[2][1] = player;
 		}
 		if(move.equalsIgnoreCase("C3")){
-			C3 = player;
+			board[2][2] = player;
 		}	
 		      
 	}					
