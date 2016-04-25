@@ -52,8 +52,7 @@ public class Main {
 	
 	}
 	
-	//получаем значения в ячейках на доске
-	
+	//получаем значения в ячейках на доске	
 	private static String getValue(String value){
 		if(value == "1"){
 			return " X";
@@ -62,9 +61,7 @@ public class Main {
 		} else {
 			return value;			
 		}		
-	}	
-	
-		
+	}			
 			
 	//Выводим поле в консоль
 	private static void printBoard(){
