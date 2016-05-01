@@ -1,4 +1,4 @@
-package geekbrains.java2.ht1b;
+package geekbrains.java2.ht2;
 
 /**
  * Created by Julia on 5/1/2016.

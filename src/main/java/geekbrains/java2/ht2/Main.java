@@ -1,6 +1,4 @@
-package geekbrains.java2.ht1b;
-
-import java.util.Scanner;
+package geekbrains.java2.ht2;
 
 public class Main {
 	
