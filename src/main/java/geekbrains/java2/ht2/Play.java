@@ -4,7 +4,6 @@ public class Play {
 
     final int WIN_SIZE = 3;
 
-
     public void Play() {
         System.out.println("Игра в крестики-нолики");
         Board.initBoard();
@@ -58,16 +57,18 @@ public class Play {
             }
         }
 
-        char [] [] timeArray = new char[Board.SIZE][Board.SIZE] ;
-        for(int iteratorX=0; iteratorX< Board.SIZE; iteratorX++ ){
-            for(int iteratorY=0; iteratorY<Board.SIZE; iteratorY++ ){
-                timeArray[iteratorX][iteratorY] =  Board.board[iteratorY][iteratorX];
+        //Инвертируем матрицу
+        char [] [] testBoard = new char[Board.SIZE][Board.SIZE] ;
+        for(int x=0; x < Board.SIZE; x++ ){
+            for(int y=0; y < Board.SIZE; y++ ){
+                testBoard[x][y] =  Board.board[y][x];
             }
         }
 
-        for(int iteratorY = 0 ; iteratorY < Board.SIZE ; iteratorY ++){
-            char[] arrayToTest = timeArray[iteratorY] ;
-            if(checkLine(arrayToTest, charToTest)){
+        //Проверяем каждый ряд на заполнение для инвертированной матрицы
+        for(int y = 0 ; y < Board.SIZE ; y ++){
+            char[] columnToTest = testBoard[y] ;
+            if(checkLine(columnToTest, charToTest)){
                 return  true ;
             }
         }
