@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67ba05bf-717b-4888-a212-dbe41498fdcd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht1b/Board.java" afterPath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Board.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht1b/Main.java" afterPath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht1b/Move.java" afterPath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Move.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht1b/Play.java" afterPath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Play.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="67ba05bf-717b-4888-a212-dbe41498fdcd" name="Default" comment="" />
     <ignored path="java2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/classes/" />
@@ -586,7 +579,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
