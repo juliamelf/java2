@@ -9,7 +9,7 @@ public class Move {
     public static int getUserMove(){
         Scanner scanner = new Scanner(System.in) ;
         int userInput = scanner.nextInt() ;
-        return userInput >= Board.SIZE ? 0 : userInput ;
+        return userInput;
     }
 
     //Ход игрока
@@ -20,11 +20,11 @@ public class Move {
         do {
             userX = getUserMove();
             userY = getUserMove();
-            if (!Board.isEmpty(userX,userY))
+            if (!Board.isValid(userX,userY))
             {
                 System.out.println("Некорректное значение, выберите другое.");
             }
-        }while (!Board.isEmpty(userX,userY));
+        }while (!Board.isValid(userX,userY));
         Board.setValue(userX,userY,Board.USER);
     }
 
@@ -35,7 +35,7 @@ public class Move {
         do {
             compX = new Random().nextInt(Board.SIZE);
             compY = new Random().nextInt(Board.SIZE);
-        }while (!Board.isEmpty(compX,compY));
+        }while (!Board.isValid(compX,compY));
         Board.setValue(compX,compY, Board.COMP);
         System.out.println("Компьютер ходит " + compX + " " + compY + ".");
     }

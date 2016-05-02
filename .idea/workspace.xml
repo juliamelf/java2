@@ -4,6 +4,7 @@
     <list default="true" id="67ba05bf-717b-4888-a212-dbe41498fdcd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Board.java" afterPath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Main.java" afterPath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Move.java" afterPath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Move.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Play.java" afterPath="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Play.java" />
     </list>
     <ignored path="java2.iws" />
@@ -44,8 +45,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="13" column="126" selection-start-line="11" selection-start-column="5" selection-end-line="13" selection-end-column="126" />
+            <state relative-caret-position="187">
+              <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -54,8 +55,8 @@
       <file leaf-file-name="Move.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Move.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+            <state relative-caret-position="136">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,14 +77,12 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+            <state relative-caret-position="289">
+              <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1356#1357#0" expanded="true" />
                 <element signature="e#1396#1397#0" expanded="true" />
-                <element signature="e#1481#1482#0" expanded="true" />
-                <element signature="e#1538#1539#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,8 +115,8 @@
         <option value="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht1b/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht1b/Move.java" />
         <option value="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht1b/Play.java" />
-        <option value="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Move.java" />
         <option value="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Play.java" />
+        <option value="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Move.java" />
         <option value="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Main.java" />
       </list>
@@ -638,8 +637,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1356#1357#0" expanded="true" />
             <element signature="e#1396#1397#0" expanded="true" />
-            <element signature="e#1481#1482#0" expanded="true" />
-            <element signature="e#1538#1539#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -659,12 +656,15 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/geekbrains/java2/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Move.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/geekbrains/java2/AppTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        <state relative-caret-position="323">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1461093183017" expanded="false" signature="256:271" placeholder=" { " />
+            <marker date="1461093183017" expanded="false" signature="289:295" placeholder=" }" />
+            <marker date="1461093183017" expanded="false" signature="326:341" placeholder=" { " />
+            <marker date="1461093183017" expanded="false" signature="379:385" placeholder=" }" />
           </folding>
         </state>
       </provider>
@@ -677,37 +677,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/geekbrains/java2/AppTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Move.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        <state relative-caret-position="136">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding>
-            <marker date="1461093183017" expanded="false" signature="256:271" placeholder=" { " />
-            <marker date="1461093183017" expanded="false" signature="289:295" placeholder=" }" />
-            <marker date="1461093183017" expanded="false" signature="326:341" placeholder=" { " />
-            <marker date="1461093183017" expanded="false" signature="379:385" placeholder=" }" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+        <state relative-caret-position="289">
+          <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1356#1357#0" expanded="true" />
             <element signature="e#1396#1397#0" expanded="true" />
-            <element signature="e#1481#1482#0" expanded="true" />
-            <element signature="e#1538#1539#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/geekbrains/java2/ht2/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="126" selection-start-line="11" selection-start-column="5" selection-end-line="13" selection-end-column="126" />
+        <state relative-caret-position="187">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
           <folding />
         </state>
       </provider>

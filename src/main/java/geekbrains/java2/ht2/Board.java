@@ -54,9 +54,12 @@ public class Board {
          board[x][y] = charValue;
     }
 
-    //Проверяем пустая ли клетка
-    public static boolean isEmpty(int x , int y ){
-        return board[x][y] == '*' ? true : false ;
+    //Проверяем доступен ли ход (клетка пустая, координаты корректные)
+    public static boolean isValid(int x , int y ){
+        if (x >= SIZE || y >= SIZE || x < 0 || y < 0 || board[x][y] != '*'){
+            return false;
+        }
+        return true;
     }
 
 

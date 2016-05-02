@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Play {
 
-    final int WIN_SIZE = 3;
+    final int WIN_SIZE = Board.SIZE;
 
     public void Play() {
         System.out.println("Игра в крестики-нолики");
