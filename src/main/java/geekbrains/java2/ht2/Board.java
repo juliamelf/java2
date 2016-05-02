@@ -1,15 +1,23 @@
 package geekbrains.java2.ht2;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Board {
 
-    final static int SIZE = 3 ;
-    final static int WIN_SIZE = 3;
+    final static int SIZE = getBoardSize();
     final static char EMPTY = '*';
     final static char USER = 'X' ;
     final static char COMP = 'O' ;
     static char [][] board = new char[SIZE][SIZE] ;
+
+    //Получаем размер доски
+    public static int getBoardSize(){
+        Scanner scanner = new Scanner(System.in) ;
+        System.out.println("Выберите размер доски");
+        int SIZE = scanner.nextInt() ;
+        return SIZE;
+    }
 
     //Получаем значения в клетках на доске
     static void initBoard() {
@@ -21,11 +29,20 @@ public class Board {
 
     //Выводим поле в консоль
     static void printBoard() {
+        System.out.print(" " + "| ");
+        for (int i = 0; i < SIZE; i++){
+            System.out.print(i+ " | ");
+        }
 
+        System.out.print("\n");
         for (int x = 0; x < SIZE; x++) {
+            System.out.print(x);
+            System.out.print("| ");
             for (int y = 0; y < SIZE; y++) {
-                System.out.print(board[x][y] + "\t");
+                System.out.print(board[x][y]  + " | ");
+
             }
+
             System.out.print("\n");
         }
         System.out.print("\n");
@@ -42,53 +59,9 @@ public class Board {
         return board[x][y] == '*' ? true : false ;
     }
 
-/*
-        System.out.println("----------------");
-        for (int i = 0; i < board.length; i++){
-            System.out.print("| ");
-            for(int j = 0; j < board[i].length; j++){
-                System.out.print(getValue(board[i][j]) + " | ");
-
-            }
-            System.out.println();
-            System.out.println("----------------");
-        }
-*/
 
 
-/*
-    //Записываем новые значения в ячейки после хода
-    private static void updateBoard(String move, String player){
-
-        if(move.equalsIgnoreCase("A1")){
-            board[0][0] = player;
-        }
-        if(move.equalsIgnoreCase("A2")){
-            board[0][1] = player;
-        }
-        if(move.equalsIgnoreCase("A3")){
-            board[0][2] = player;
-        }
-        if(move.equalsIgnoreCase("B1")){
-            board[1][0] = player;
-        }
-        if(move.equalsIgnoreCase("B2")){
-            board[1][1] = player;
-        }
-        if(move.equalsIgnoreCase("B3")){
-            board[1][2] = player;
-        }
-        if(move.equalsIgnoreCase("C1")){
-            board[2][0] = player;
-        }
-        if(move.equalsIgnoreCase("C2")){
-            board[2][1] = player;
-        }
-        if(move.equalsIgnoreCase("C3")){
-            board[2][2] = player;
-        }
-
-    }
+ /*
 
     // Проверяем заполнен ли ряд
     private static boolean checkRowValues(String s1, String s2, String s3){

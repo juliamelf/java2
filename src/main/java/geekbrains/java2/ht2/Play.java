@@ -1,11 +1,14 @@
 package geekbrains.java2.ht2;
 
+import java.util.Scanner;
+
 public class Play {
 
     final int WIN_SIZE = 3;
 
     public void Play() {
         System.out.println("Игра в крестики-нолики");
+
         Board.initBoard();
         Board.printBoard();
 
