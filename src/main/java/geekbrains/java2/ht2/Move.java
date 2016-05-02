@@ -3,13 +3,12 @@ package geekbrains.java2.ht2;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Move {
+class Move {
 
     //Считываем значения введенные игроком
-    public static int getUserMove(){
+    static int getUserMove(){
         Scanner scanner = new Scanner(System.in) ;
-        int userInput = scanner.nextInt() ;
-        return userInput;
+        return scanner.nextInt();
     }
 
     //Ход игрока
@@ -20,11 +19,11 @@ public class Move {
         do {
             userX = getUserMove();
             userY = getUserMove();
-            if (!Board.isValid(userX,userY))
+            if (Board.notValid(userX,userY))
             {
                 System.out.println("Некорректное значение, выберите другое.");
             }
-        }while (!Board.isValid(userX,userY));
+        }while (Board.notValid(userX,userY));
         Board.setValue(userX,userY,Board.USER);
     }
 
@@ -35,7 +34,7 @@ public class Move {
         do {
             compX = new Random().nextInt(Board.SIZE);
             compY = new Random().nextInt(Board.SIZE);
-        }while (!Board.isValid(compX,compY));
+        }while (Board.notValid(compX,compY));
         Board.setValue(compX,compY, Board.COMP);
         System.out.println("Компьютер ходит " + compX + " " + compY + ".");
     }

@@ -3,20 +3,19 @@ package geekbrains.java2.ht2;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Board {
+class Board {
 
     final static int SIZE = getBoardSize();
-    final static char EMPTY = '*';
+    private final static char EMPTY = '*';
     final static char USER = 'X' ;
     final static char COMP = 'O' ;
     static char [][] board = new char[SIZE][SIZE] ;
 
     //Получаем размер доски
-    public static int getBoardSize(){
+    static int getBoardSize(){
         Scanner scanner = new Scanner(System.in) ;
         System.out.println("Выберите размер доски");
-        int SIZE = scanner.nextInt() ;
-        return SIZE;
+        return scanner.nextInt();
     }
 
     //Получаем значения в клетках на доске
@@ -55,11 +54,11 @@ public class Board {
     }
 
     //Проверяем доступен ли ход (клетка пустая, координаты корректные)
-    public static boolean isValid(int x , int y ){
-        if (x >= SIZE || y >= SIZE || x < 0 || y < 0 || board[x][y] != '*'){
-            return false;
+    public static boolean notValid(int x , int y ){
+        if (x >= SIZE || y >= SIZE || x < 0 || y < 0 || board[x][y] != '*') {
+            return true;
         }
-        return true;
+        return false;
     }
 
 
