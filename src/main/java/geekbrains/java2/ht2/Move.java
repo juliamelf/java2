@@ -6,36 +6,36 @@ import java.util.Scanner;
 class Move {
 
     //Считываем значения введенные игроком
-    static int getUserMove(){
+    static int getUserMove() {
         Scanner scanner = new Scanner(System.in) ;
         return scanner.nextInt();
     }
 
     //Ход игрока
-    public static void userMove(){
-        int userX,userY;
+    public static void userMove() {
+        int userX, userY;
         System.out.println("Ход игрока.");
         System.out.println("Выберите координаты X и Y.");
         do {
             userX = getUserMove();
             userY = getUserMove();
-            if (Board.notValid(userX,userY))
+            if (Board.notValid(userX, userY))
             {
                 System.out.println("Некорректное значение, выберите другое.");
             }
-        }while (Board.notValid(userX,userY));
-        Board.setValue(userX,userY,Board.USER);
+        }while (Board.notValid(userX, userY));
+        Board.setValue(userX, userY, Board.USER);
     }
 
     //Ход компьютера
-    public static void compMove(){
-        int compX,compY;
+    public static void compMove() {
+        int compX, compY;
         System.out.println("Ход компьютера.");
         do {
             compX = new Random().nextInt(Board.SIZE);
             compY = new Random().nextInt(Board.SIZE);
-        }while (Board.notValid(compX,compY));
-        Board.setValue(compX,compY, Board.COMP);
+        }while (Board.notValid(compX, compY));
+        Board.setValue(compX, compY, Board.COMP);
         System.out.println("Компьютер ходит " + compX + " " + compY + ".");
     }
 

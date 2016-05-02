@@ -7,13 +7,13 @@ class Board {
 
     final static int SIZE = getBoardSize();
     private final static char EMPTY = '*';
-    final static char USER = 'X' ;
-    final static char COMP = 'O' ;
-    static char [][] board = new char[SIZE][SIZE] ;
+    final static char USER = 'X';
+    final static char COMP = 'O';
+    static char [][] board = new char[SIZE][SIZE];
 
     //Получаем размер доски
-    static int getBoardSize(){
-        Scanner scanner = new Scanner(System.in) ;
+    static int getBoardSize() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите размер доски");
         return scanner.nextInt();
     }
@@ -29,7 +29,7 @@ class Board {
     //Выводим поле в консоль
     static void printBoard() {
         System.out.print(" " + "| ");
-        for (int i = 0; i < SIZE; i++){
+        for (int i = 0; i < SIZE; i++) {
             System.out.print(i+ " | ");
         }
 
@@ -39,22 +39,19 @@ class Board {
             System.out.print("| ");
             for (int y = 0; y < SIZE; y++) {
                 System.out.print(board[x][y]  + " | ");
-
             }
-
             System.out.print("\n");
         }
         System.out.print("\n");
-
     }
 
     //Устанавливаем значение клетки поля
-    public static void setValue(int x , int y , char charValue){
+    public static void setValue(int x , int y , char charValue) {
          board[x][y] = charValue;
     }
 
     //Проверяем доступен ли ход (клетка пустая, координаты корректные)
-    public static boolean notValid(int x , int y ){
+    public static boolean notValid(int x , int y ) {
         if (x >= SIZE || y >= SIZE || x < 0 || y < 0 || board[x][y] != '*') {
             return true;
         }
