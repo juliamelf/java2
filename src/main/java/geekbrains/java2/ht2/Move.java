@@ -6,7 +6,7 @@ import java.util.Scanner;
 class Move {
 
     //Считываем значения введенные игроком
-    static int getUserMove() {
+    private static int getUserMove() {
         Scanner scanner = new Scanner(System.in) ;
         return scanner.nextInt();
     }
@@ -19,12 +19,20 @@ class Move {
         do {
             userX = getUserMove();
             userY = getUserMove();
-            if (Board.notValid(userX, userY))
+            if (notValid(userX, userY))
             {
                 System.out.println("Некорректное значение, выберите другое.");
             }
-        }while (Board.notValid(userX, userY));
+        }while (notValid(userX, userY));
         Board.setValue(userX, userY, Board.USER);
+    }
+
+    //Проверяем доступен ли ход (клетка пустая, координаты корректные)
+    private static boolean notValid(int x , int y ) {
+        if (x >= Board.SIZE || y >= Board.SIZE || x < 0 || y < 0 || Board.board[x][y] != '*') {
+            return true;
+        }
+        return false;
     }
 
     //Ход компьютера
@@ -34,76 +42,58 @@ class Move {
         do {
             compX = new Random().nextInt(Board.SIZE);
             compY = new Random().nextInt(Board.SIZE);
-        }while (Board.notValid(compX, compY));
+        }while (notValid(compX, compY));
         Board.setValue(compX, compY, Board.COMP);
         System.out.println("Компьютер ходит " + compX + " " + compY + ".");
     }
-
-
-
-
-
-
 /*
+    private boolean winner(int lastR, int lastC)  {
 
+        boolean winner = false; //assume there's no winner
+        char symbol = board[lastR][lastC]; //the symbol for the last move either X or O
 
-
-
-
-    //Ход компьютера
-    private static  String computerMove(){
-
-        //блокируем линию по горизонтали
-        for(int i = 0; i < 3; i++){
-            if (board[i][0] == board[i][1] && validMove(board[i][2]) == true){
-                return board[i][2];
-            } else if (board[i][0] == board[i][2] && validMove(board[i][1]) == true){
-                return board[i][1];
-            } else if (board[i][1] == board [i][2] && validMove(board[i][0]) == true){
-                return board[i][0];
-            }
+        //check left-right
+        //the last move we made was in the row lastR, check that row for three of the same symbol
+        int numFound = 0;
+        for(int c = 0; c < 3; c++)  {
+            if(board[lastR][c] == symbol)
+                numFound++;
         }
 
-        //блокируем линию по вертикали
-        for(int j = 0; j < 3; j++) {
-            if (board[0][j] == board[1][j] && validMove(board[2][j]) == true){
-                return board[2][j];
-            } else if (board[0][j] == board[2][j] && validMove(board[1][j]) == true){
-                return board[1][j];
-            } else if (board[1][j] == board[2][j] && validMove(board[0][j]) == true){
-                return board[0][j];
-            }
+        if(numFound == 3)
+            winner = true;
+
+        //check up-down
+        //the last move we made was in the column lastC, check that column for three of the same symbol
+        numFound = 0;
+        for(int r = 0; r < 3; r++)  {
+            if(board[r][lastC] == symbol)
+                numFound++;
         }
 
-        //блокируем линию по диагонали
-        if(board[0][0] == board[1][1] && validMove(board[2][2]) == true){
-            return board[2][2];
-        } else if (board[0][0] == board[2][2] && validMove(board[1][1]) == true){
-            return board[1][1];
-        } else if (board[1][1] == board[2][2] && validMove(board[0][0]) == true){
-            return board[0][0];
+        if(numFound == 3)
+            winner = true;
+
+        //check both diagonals
+        numFound = 0;
+        for(int i = 0; i < 3; i++)  {
+            if(board[i][i] == symbol)
+                numFound++;
         }
 
-        if(board[0][2] == board[1][1] && validMove(board[2][0]) == true){
-            return board[2][0];
-        } else if (board[0][2] == board[2][0] && validMove(board[1][1]) == true){
-            return board[1][1];
-        } else if (board[1][1] == board[2][0] && validMove(board[0][2]) == true){
-            return board[0][2];
+        if(numFound == 3)
+            winner = true;
+
+        numFound = 0;
+        for(int i = 0; i < 3; i++)  {
+            if(board[i][2-i] == symbol)
+                numFound++;
         }
 
-        //свой ход
-        for(int i = 0; i < board.length; i++){
-            for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] != "1" && board[i][j] != "2"){
-                    return board[i][j];
-                }
+        if(numFound == 3)
+            winner = true;
 
-            }
-
-        }
-        return "Больше ходов нет. Ничья";
-
+        return winner;
     }
-*/
+    */
 }
