@@ -4,19 +4,21 @@ class Play {
 
     private final int WIN_SIZE = Board.SIZE;
 
-    public void gamePlay() {
-        System.out.println("Игра в крестики-нолики");
+    public Play(){
+        Board board = new Board();
+        gamePlay();
+    }
 
-        Board.initBoard();
+    private void gamePlay() {
+
         Board.printBoard();
 
-        while (true) {
+        while (!boardFull()) {
 
             Move.userMove();
             Board.printBoard();
 
-            boolean isUserWin = winGame(Board.USER);
-            if (isUserWin) {
+            if (winGame(Board.USER)) {
                 System.out.println("Вы выиграли!");
                 break;
             }
@@ -24,13 +26,27 @@ class Play {
             Move.compMove();
             Board.printBoard();
 
-            boolean isCompWin = winGame(Board.COMP);
-            if (isCompWin) {
+            if (winGame(Board.COMP)) {
                 System.out.println("Вы проиграли!");
                 break;
             }
 
         }
+        System.out.println("Игра закончена");
+    }
+
+    //Проверяем осталось ли место на доске
+    private boolean boardFull()  {
+        int numSpots =  Board.SIZE* Board.SIZE;
+        int numSpotsFilled = 0;
+        for(int i = 0; i < Board.SIZE; i++)  {
+            for(int j = 0; j < Board.SIZE; j++)  {
+                if(Board.board[i][j] != '*')
+                    numSpotsFilled++;
+            }
+        }
+
+        return numSpotsFilled == numSpots;
     }
 
     //Проверяем заполнен ли ряд
@@ -70,36 +86,28 @@ class Play {
                 return true;
             }
         }
+
+        //Проверяем одну диагональ на заполнение
+        int numFound = 0;
+        for(int i = 0; i < Board.SIZE; i++)  {
+            if(Board.board[i][i] == charToTest)
+                numFound++;
+        }
+
+        if(numFound == WIN_SIZE)
+            return true;
+
+        //Проверяем вторую диагональ на заполнение
+        numFound = 0;
+        int numTest = Board.SIZE - 1;
+        for(int i = 0; i < Board.SIZE; i++)  {
+            if(Board.board[i][numTest-i] == charToTest)
+                numFound++;
+        }
+
+        if(numFound == WIN_SIZE)
+            return true;
+
         return false;
     }
-
-
-
-/*
-
-
-        while(computerMove() != "Больше ходов нет. Ничья"){
-            System.out.println("Ваш ход");
-            updateBoard(playerMove(), "1");
-            printBoard();
-            if(winGame() == true){
-                System.out.println("Вы выиграли!");
-                break;
-            }
-
-            System.out.println("Ход компьютера");
-            System.out.println("Компьютер ходит: " + computerMove());
-            updateBoard(computerMove(), "2");
-            printBoard();
-            if(winGame() == true){
-                System.out.println("Вы проиграли!");
-                break;
-            }
-
-        }
-        System.out.println("Игра закончена");
-
-    }
-
-    */
 }
