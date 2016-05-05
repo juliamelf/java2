@@ -1,4 +1,6 @@
-package geekbrains.java2.ht2;
+package geekbrains.java2.ht2_1;
+
+
 
 class Play {
 
@@ -77,8 +79,8 @@ class Play {
 
         //Инвертируем матрицу
         char [][] testBoard = new char[Board.SIZE][Board.SIZE];
-        for (int x=0; x < Board.SIZE; x++ ) {
-            for (int y=0; y < Board.SIZE; y++ ) {
+        for (int x = 0; x < Board.SIZE; x++ ) {
+            for (int y = 0; y < Board.SIZE; y++ ) {
                 testBoard[x][y] =  Board.board[y][x];
             }
         }
