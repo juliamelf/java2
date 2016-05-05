@@ -23,15 +23,19 @@ class Play {
                 break;
             }
 
-            Move.compMove();
-            Board.printBoard();
+            if (!boardFull()){
+                Move.compMove();
+                Board.printBoard();
 
-            if (winGame(Board.COMP)) {
-                System.out.println("Вы проиграли!");
-                break;
+                if (winGame(Board.COMP)) {
+                    System.out.println("Вы проиграли!");
+                    break;
+                }
+
             }
 
-        }
+            }
+
         System.out.println("Игра закончена");
     }
 
