@@ -5,15 +5,11 @@ import java.util.Scanner;
 
 class Board {
 
-    static int SIZE = getBoardSize();
-    private final static char EMPTY = '*';
+    static int boardSize = getBoardSize();
+    private static final char EMPTY = '*';
     final static char USER = 'X';
     final static char COMP = 'O';
-    static char [][] board = new char[SIZE][SIZE];
-
-    public Board(){
-        initBoard();
-    }
+    static char [][] board = new char[boardSize][boardSize];
 
     //Получаем размер доски
     private static int getBoardSize() {
@@ -23,8 +19,8 @@ class Board {
     }
 
     //Получаем значения в клетках на доске
-    private static void initBoard() {
-        for (int x = 0; x < SIZE; x++) {
+    public static void initBoard() {
+        for (int x = 0; x < boardSize; x++) {
             Arrays.fill(board[x], EMPTY);
         }
     }
@@ -32,15 +28,15 @@ class Board {
     //Выводим поле в консоль
     static void printBoard() {
         System.out.print("\t");
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < boardSize; i++) {
             System.out.printf("%4s",  i);
         }
 
         System.out.print("\n");
-        for (int x = 0; x < SIZE; x++) {
+        for (int x = 0; x < boardSize; x++) {
             System.out.printf("%4d", x);
             System.out.print("| ");
-            for (int y = 0; y < SIZE; y++) {
+            for (int y = 0; y < boardSize; y++) {
                 System.out.print(board[x][y]  + " | ");
             }
             System.out.print("\n");

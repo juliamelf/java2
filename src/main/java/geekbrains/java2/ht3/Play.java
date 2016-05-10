@@ -3,32 +3,29 @@ package geekbrains.java2.ht3;
 
 class Play {
 
-    private final int WIN_SIZE = Board.SIZE;
+    private final int WINSIZE = Board.boardSize;
+    Board board = new Board();
 
-    public Play(){
-        Board board = new Board();
-        gamePlay();
-    }
+    public void gamePlay() {
 
-    private void gamePlay() {
-
-        Board.printBoard();
+        board.initBoard();
+        board.printBoard();
 
         while (!boardFull()) {
 
             Move.userMove();
-            Board.printBoard();
+            board.printBoard();
 
-            if (winGame(Board.USER)) {
+            if (winGame(board.USER)) {
                 System.out.println("Вы выиграли!");
                 break;
             }
 
-            if (!boardFull()){
+            if (!boardFull()) {
                 Move.compMove();
-                Board.printBoard();
+                board.printBoard();
 
-                if (winGame(Board.COMP)) {
+                if (winGame(board.COMP)) {
                     System.out.println("Вы проиграли!");
                     break;
                 }
@@ -42,12 +39,13 @@ class Play {
 
     //Проверяем осталось ли место на доске
     private boolean boardFull()  {
-        int numSpots =  Board.SIZE* Board.SIZE;
+        int numSpots =  board.boardSize * board.boardSize;
         int numSpotsFilled = 0;
-        for(int i = 0; i < Board.SIZE; i++)  {
-            for(int j = 0; j < Board.SIZE; j++)  {
-                if(Board.board[i][j] != '*')
+        for (int i = 0; i < board.boardSize; i++)  {
+            for (int j = 0; j < board.boardSize; j++)  {
+                if (board.board[i][j] != '*') {
                     numSpotsFilled++;
+                }
             }
         }
 
@@ -56,36 +54,36 @@ class Play {
 
     //Проверяем заполнен ли ряд
     private boolean checkLine(char[] lineToTest, char testChar) {
-        int testCharInLine = 0 ;
+        int testCharInLine = 0;
         for (char aLineToTest : lineToTest) {
             if (aLineToTest == testChar) {
                 testCharInLine++;
             }
         }
 
-        return testCharInLine == WIN_SIZE;
+        return testCharInLine == WINSIZE;
     }
 
     //Проверяем выиграл ли игрок
     private boolean winGame(char charToTest) {
         //Проверяем каждый ряд на заполнение
-        for (int y = 0; y < Board.SIZE; y ++) {
-            char[] lineToTest = Board.board[y] ;
+        for (int y = 0; y < board.boardSize; y++) {
+            char[] lineToTest = board.board[y];
             if (checkLine(lineToTest, charToTest)) {
-                return true ;
+                return true;
             }
         }
 
         //Инвертируем матрицу
-        char [][] testBoard = new char[Board.SIZE][Board.SIZE];
-        for (int x = 0; x < Board.SIZE; x++ ) {
-            for (int y = 0; y < Board.SIZE; y++ ) {
-                testBoard[x][y] =  Board.board[y][x];
+        char [][] testBoard = new char[board.boardSize][board.boardSize];
+        for (int x = 0; x < board.boardSize; x++ ) {
+            for (int y = 0; y < board.boardSize; y++ ) {
+                testBoard[x][y] =  board.board[y][x];
             }
         }
 
         //Проверяем каждый ряд на заполнение для инвертированной матрицы
-        for (int y = 0; y < Board.SIZE; y++) {
+        for (int y = 0; y < board.boardSize; y++) {
             char[] columnToTest = testBoard[y];
             if (checkLine(columnToTest, charToTest)) {
                 return true;
@@ -94,23 +92,25 @@ class Play {
 
         //Проверяем одну диагональ на заполнение
         int numFound = 0;
-        for(int i = 0; i < Board.SIZE; i++)  {
-            if(Board.board[i][i] == charToTest)
+        for (int i = 0; i < board.boardSize; i++)  {
+            if (board.board[i][i] == charToTest) {
                 numFound++;
+            }
         }
 
-        if(numFound == WIN_SIZE)
+        if (numFound == WINSIZE)
             return true;
 
         //Проверяем вторую диагональ на заполнение
         numFound = 0;
-        int numTest = Board.SIZE - 1;
-        for(int i = 0; i < Board.SIZE; i++)  {
-            if(Board.board[i][numTest-i] == charToTest)
+        int numTest = board.boardSize - 1;
+        for (int i = 0; i < board.boardSize; i++) {
+            if (board.board[i][numTest - i] == charToTest) {
                 numFound++;
+            }
         }
 
-        return numFound == WIN_SIZE;
+        return numFound == WINSIZE;
 
     }
 }
