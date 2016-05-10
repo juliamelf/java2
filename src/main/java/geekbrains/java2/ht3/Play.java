@@ -3,8 +3,8 @@ package geekbrains.java2.ht3;
 
 class Play {
 
-    private final int WINSIZE = Board.boardSize;
     Board board = new Board();
+    private final int WINSIZE = board.boardSize;
 
     public void gamePlay() {
 
